@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine Hostel Admin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #004080;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            margin-bottom: 20px;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 95%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .form-group button {
+            background-color: #004080;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #003366;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Divine Hostel Admin Panel</h1>
+    </div>
+    <div class="container">
+        <!-- Select Student Form -->
+        <div class="form-container">
+            <h2>Select Student</h2>
+            <div class="form-group">
+                <label for="student-username">Student Username</label>
+                <input type="text" id="student-username" name="student-username">
+            </div>
+            <div class="form-group">
+                <label for="student-password">Student Password</label>
+                <input type="password" id="student-password" name="student-password">
+            </div>
+            <div class="form-group">
+                <button type="button" onclick="selectStudent()">Select Student</button>
+            </div>
+        </div>
+
+        <!-- Set Fees Form -->
+        <div class="form-container" id="fees-container" style="display:none;">
+            <h2>Set Fees</h2>
+            <div class="form-group">
+                <label for="fees">Fees Amount</label>
+                <input type="text" id="fees" name="fees">
+            </div>
+            <div class="form-group">
+                <button type="button" onclick="updateFees()">Update Fees</button>
+            </div>
+        </div>
+
+        <!-- Set Food Menu Form -->
+        <div class="form-container" id="menu-container" style="display:none;">
+            <h2>Set Food Menu</h2>
+            <div class="form-group">
+                <label for="food-menu">Today's Menu</label>
+                <textarea id="food-menu" name="food-menu" rows="5"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="button" onclick="updateMenu()">Update Menu</button>
+            </div>
+        </div>
+
+        <!-- View Complaints Section -->
+        <div class="form-container" id="complaints-container" style="display:none;">
+            <h2>View Complaints</h2>
+            <div class="form-group">
+                <label for="complaints">Complaints</label>
+                <textarea id="complaints" name="complaints" rows="10" readonly></textarea>
+            </div>
+        </div>
+
+        <!-- View Leaves Section -->
+        <div class="form-container" id="leaves-container" style="display:none;">
+            <h2>View Leave Applications</h2>
+            <div class="form-group">
+                <label for="leaves">Leave Applications</label>
+                <textarea id="leaves" name="leaves" rows="10" readonly></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function selectStudent() {
+            // Show all sections after student is selected
+            document.getElementById('fees-container').style.display = 'block';
+            document.getElementById('menu-container').style.display = 'block';
+            document.getElementById('complaints-container').style.display = 'block';
+            document.getElementById('leaves-container').style.display = 'block';
+        }
+
+        function updateFees() {
+            const fees = document.getElementById('fees').value;
+            alert(`Fees updated to ${fees}`);
+            // Add code here to actually update the fees in the backend
+        }
+
+        function updateMenu() {
+            const menu = document.getElementById('food-menu').value;
+            alert(`Menu updated to:\n${menu}`);
+            // Add code here to actually update the menu in the backend
+        }
+    </script>
+</body>
+</html>
